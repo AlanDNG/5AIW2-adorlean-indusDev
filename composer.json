@@ -6,6 +6,11 @@
             "email": "alan.dorlean@gmail.com"
         }
     ],
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
     "require": {
         "phpunit/phpunit": "^7.0"
     }
