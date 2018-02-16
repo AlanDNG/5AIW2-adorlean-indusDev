@@ -1,2 +1,3 @@
-# 5AIW2-adorlean-indusDev
 [![Build Status](https://travis-ci.org/AlanDNG/5AIW2-adorlean-indusDev.svg?branch=master)](https://travis-ci.org/AlanDNG/5AIW2-adorlean-indusDev)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c0caa47f99e241649e761a43511246a7)](https://www.codacy.com/app/AlanDNG/5AIW2-adorlean-indusDev?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AlanDNG/5AIW2-adorlean-indusDev&amp;utm_campaign=Badge_Grade)
+# 5AIW2-adorlean-indusDev
