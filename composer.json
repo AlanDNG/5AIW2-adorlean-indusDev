@@ -1,12 +1,21 @@
 {
-    "name": "ayisien/5aiw2-adorlean-indus-dev",
+    "name": "ayisien/5aiw2-adorlean-indusDev",
     "authors": [
         {
             "name": "Ayisien",
             "email": "alan.dorlean@gmail.com"
         }
     ],
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
     "require": {
+        "php": "^7.0",
+        "fzaninotto/faker": "^1.7"
+    },
+    "require-dev": {
         "phpunit/phpunit": "^7.0"
     }
 }
