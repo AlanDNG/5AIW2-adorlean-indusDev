@@ -1,26 +1,22 @@
 language: php
-
-php:
-  7.0
-  7.1
-
+php: 7.0 7.1
 script:
-    - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-enable; fi
-    - docker run --rm -v $PWD:/app phpqa/php-cs-fixer fix --show-progress=estimating --verbose .
-    - docker pull phpqa/security-checker
-    - docker run --rm -v $PWD:/app phpqa/security-checker security:check
-
+- if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-enable; fi
+# - docker run --rm -v $PWD:/app phpqa/php-cs-fixer fix --show-progress=estimating --verbose .
+- php phpcs.phar -n index.php
+- docker pull phpqa/security-checker
+- docker run --rm -v $PWD:/app phpqa/security-checker security:check
+notifications:
+  email:
+    recipients:
+    - alan.dorlean@gmail.com
+    on_success: never
+    on_failure: always
 # deploy:
 #   provider: heroku
 #   api_key:
-#     secure: "YOUR SECURE ENCRYPT ID"
-#   app: project-induenvweb
+#     secure: C+ekEIYhtKh3TF/wxYAscxeEcc650cN2g4/GbFh4Hra5lvSv5ffAP2UVEs1b3RICrJ6RatInFMPvsy91iSEuBD3fTNxmasS2+Xlms+iKgXIyQzjk0R1bq0hM1AK6bKWb6knSNNF+5L0YZLk3iL5lCGFccYISwPhsgd5Fy4BLKlZLf+BuBcgjww69ZBNOF6TdwtkoVuOUJun9VPQBe+k611PBNLZZxL2o0jlxGkLIQb2x+beYR2gbrsC6kZXu9Cyg96RrbK3UL5G1Ok6zAdfMiMUQ9aRrPd4TDXxu4Z7zOCQwqN6u/Fe0IA6eIsnne5pqSQEkgzwXNS1cg4EN9ReIMGjdyogXFLDCB7c+YLQB+bUUog2D8lM05pE4Po6YXO7RNFl069bGP+wC0atfpnhZj54zuNxbtM2EGfZuXURjbT7UL39BYFBt8EHuDXzIsvETZtDWiYDg7m6y9GFqlHmj9aEPiW6H/8hNH8UGxkVm2xHOHS/IEDElQscwgtPBG6sx6xCXCa/nSK/ouFPxCnQx1NosbpxYW3q9jRLWFGVB1i4YT2dcjXJfr7qDyjPVYBzXgnXUBmA8K5/bxc+UIECwe2HbdOVsEDsOgrU/+rstWPjGFJJ2jngu6BG9PvGcPNrfqXBLxwiw5cKdTMWqAqQCKEZJ8piA1gqkhkFYa9MqMG0=
+#   app: 5AIW2-adorlean-indusDev
 #   on:
 #     repo: AlanDNG/5AIW2-adorlean-indusDev
-#     branch: deploy
-notifications:
-    email:
-      recipients:
-          - alan.dorlean@gmail.com
-      on_success: never
-      on_failure: always
+#     branch: master
