@@ -2,7 +2,7 @@ language: php
 php: 7.0 7.1
 script:
 - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-enable; fi
-- docker run --rm -v $PWD:/app phpqa/phpcs -n index.php
+- docker run --rm -v $PWD:/app phpqa/phpcs index.php
 # - docker run --rm -v $PWD:/app phpqa/php-cs-fixer fix --show-progress=estimating --verbose .
 - docker pull phpqa/security-checker
 - docker run --rm -v $PWD:/app phpqa/security-checker security:check
