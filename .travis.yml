@@ -1,0 +1,26 @@
+language: php
+
+php:
+  7.0
+  7.1
+
+script:
+    - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-enable; fi
+    - composer install
+    - docker run --rm -v $PWD:/app phpqa/php-cs-fixer fix --show-progress=estimating --verbose .
+    - docker run --rm -v $PWD:/app phpqa/security-checker security:check
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: "YOUR SECURE ENCRYPT ID"
+  app: project-induenvweb
+  on:
+    repo: AlanDNG/5AIW2-adorlean-indusDev
+    branch: deploy
+notifications:
+    email:
+      recipients:
+          - alan.dorlean@gmail.com
+      on_success: never
+      on_failure: always
