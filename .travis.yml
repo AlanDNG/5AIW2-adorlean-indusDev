@@ -5,19 +5,19 @@ php:
   7.1
 
 script:
-    - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-enable; fi
     - composer install
+    - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-enable; fi
     - docker run --rm -v $PWD:/app phpqa/php-cs-fixer fix --show-progress=estimating --verbose .
     - docker run --rm -v $PWD:/app phpqa/security-checker security:check
 
-deploy:
-  provider: heroku
-  api_key:
-    secure: "YOUR SECURE ENCRYPT ID"
-  app: project-induenvweb
-  on:
-    repo: AlanDNG/5AIW2-adorlean-indusDev
-    branch: deploy
+# deploy:
+#   provider: heroku
+#   api_key:
+#     secure: "YOUR SECURE ENCRYPT ID"
+#   app: project-induenvweb
+#   on:
+#     repo: AlanDNG/5AIW2-adorlean-indusDev
+#     branch: deploy
 notifications:
     email:
       recipients:
